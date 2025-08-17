@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, collection, addDoc, getDocs, onSnapshot, doc, updateDoc, deleteDoc, query, where, setDoc } from 'firebase/firestore';
-import { Scale, CalendarDays, FolderOpen, Users, BarChart2, Settings, Plus, Minus, Edit, Trash2, CheckCircle, Upload, Sun, Moon, Palette, Type, ArrowUp, ArrowDown } from 'lucide-react'; // Import Lucide React icons
+import { Scale, CalendarDays, FolderOpen, Users, BarChart2, Settings, Plus, Minus, Edit, Trash2, CheckCircle, Upload, Sun, Moon, Palette, ArrowUp, ArrowDown } from 'lucide-react'; // Import Lucide React icons
 
 // Utility function to check if two dates are the same day
 const isSameDay = (d1, d2) => d1.getFullYear() === d2.getFullYear() &&
@@ -251,10 +251,9 @@ const SimpleCalendar = ({ value, onChange, tileContent, view, onViewChange, onDa
 };
 
 
-// Define global variables provided by the Canvas environment
-// eslint-disable-next-line no-undef
+// Define global variables - using hardcoded values for local/Netlify deployment
 const firebaseConfig = {
- apiKey: "AIzaSyDqUyS8UebUnFrRq3MwcYzTRIGjFrvlNgk",
+  apiKey: "AIzaSyDqUyS8UebUnFrRq3MwcYzTRIGjFrvlNgk",
   authDomain: "advocatepracticemanagerv2.firebaseapp.com",
   projectId: "advocatepracticemanagerv2",
   storageBucket: "advocatepracticemanagerv2.firebasestorage.app",
@@ -262,10 +261,8 @@ const firebaseConfig = {
   appId: "1:350631597709:web:77d879ed2641976fdc34c4",
   measurementId: "G-2V7P43Y04E"
 };
-// eslint-disable-next-line no-undef
-const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-// eslint-disable-next-line no-undef
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+const initialAuthToken = null; // This will be null for local/Netlify deployment
+const appId = 'advocate-app-id'; // Use a consistent default ID for Netlify
 
 // Define color schemes
 const colorSchemes = {
